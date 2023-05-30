@@ -2,7 +2,8 @@
 #
 # To get started with mdBook see: https://rust-lang.github.io/mdBook/index.html
 #
-name: Deploy mdBook site to Pages
+#name: Deploy mdBook site to Pages
+name: Build html and pdf
 
 on:
   # Runs on pushes targeting the default branch
@@ -38,12 +39,24 @@ jobs:
         uses: Swatinem/rust-cache@v2.2.1
 
       - name: Install mdBook
+        uses: MineBartekSA/quick-mdbook@v1.1
+#        with:
+#          version: 0.4.21
+
+      - name: Install mdBook plugins
         run: |
           curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
           rustup update
-          cargo install --version ${MDBOOK_VERSION} mdbook
           cargo install mdbook-toc
           cargo install mdbook-pdf
+
+#      - name: Install mdBook
+#        run: |
+#          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
+#          rustup update
+#          cargo install --version ${MDBOOK_VERSION} mdbook
+#          cargo install mdbook-toc
+#          cargo install mdbook-pdf
 
 #      - name: Setup Pages
 #        id: pages
