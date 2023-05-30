@@ -1,2 +1,10 @@
 [book]
-title = "My First Book"
+title = "Example book"
+authors = ["John Doe"]
+description = "The example book covers examples."
+
+[output.html]
+additional-css = ["custom.css"]
+
+[output.html.search]
+limit-results = 15
