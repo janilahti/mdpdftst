@@ -9,6 +9,7 @@ multilingual = false
 [preprocessor.toc]
 command = "mdbook-toc"
 renderer = ["html", "pdf"]
+marker = "[[_TOC_]]"
 
 [output.html]
 additional-css = ["custom.css"]

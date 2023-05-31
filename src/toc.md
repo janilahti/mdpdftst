@@ -1,5 +1,11 @@
 # Table of Contents
 
+First marker:
+
 <!-- toc -->
 
-Minimal mod
+Alternative marker:
+
+[[_TOC_]]
+
+Text for padding.
