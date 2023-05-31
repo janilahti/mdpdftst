@@ -30,25 +30,34 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      MDBOOK_VERSION: 0.4.21
+      MDBOOK_VERSION: 0.4.30
     steps:
+      - uses: actions/checkout@v3
+
       - name: Setup Chromium for PDF creation
         uses: browser-actions/setup-chrome@v1
 
-      - name: Install mdBook markdown processor
-        uses: MineBartekSA/quick-mdbook@v1.1
+      # - name: Install mdBook markdown processor
+      #   uses: MineBartekSA/quick-mdbook@v1.1
 
       - name: Cache mdBook dependencies
         uses: Swatinem/rust-cache@v2.2.1
 
-      - name: Install mdBook plugins
+      # - name: Install mdBook plugins
+      #   run: |
+      #     ls -l /home/runner/.cargo/bin/md*
+      #     curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
+      #     rustup update
+      #     cargo install mdbook-toc mdbook-pdf
+
+      - name: Install mdBook and plugins
         run: |
-          ls -l /home/runner/.cargo/bin/md*
           curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
           rustup update
-          cargo install mdbook-toc mdbook-pdf
+          cargo install --version ${MDBOOK_VERSION} mdbook
+          cargo install mdbook-toc
+          cargo install mdbook-pdf
 
-      - uses: actions/checkout@v3
 
 # skip mdbook install when using MineBartekSA/quick-mdbook@v1.1
 #      - name: Install mdBook
