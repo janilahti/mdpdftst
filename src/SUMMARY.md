@@ -2,7 +2,7 @@
 
 [Introduction](README.md)
 
-- [Table of Contents](toc.md)
+[Table of Contents](toc.md)
 
 # User Guide
 
@@ -11,4 +11,7 @@
 
 # Reference Manual
 
-- [Introduction Reference Manual](ref/intro.md)
+- [Introduction to Reference Manual](ref/intro.md)
+- [Installing and upgrading Radiator]()
+  - [System requirements]()
+  - [Updating from demo version to full version]()
