@@ -1,4 +1,4 @@
 # My First Chapter
 
 Fill out your content here.
-Some text. And mod.
+Some text.
