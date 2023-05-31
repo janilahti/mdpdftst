@@ -37,8 +37,6 @@ jobs:
 
       - name: Install mdBook markdown processor
         uses: MineBartekSA/quick-mdbook@v1.1
-#        with:
-#          version: 0.4.21
 
       - name: Cache mdBook dependencies
         uses: Swatinem/rust-cache@v2.2.1
@@ -46,12 +44,13 @@ jobs:
       - name: Install mdBook plugins
         run: |
           ls -l /home/runner/.cargo/bin/md*
-          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
+          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y 20 | sh
           rustup update
           cargo install mdbook-toc mdbook-pdf
 
       - uses: actions/checkout@v3
 
+# skip mdbook install when using MineBartekSA/quick-mdbook@v1.1
 #      - name: Install mdBook
 #        run: |
 #          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
@@ -60,6 +59,7 @@ jobs:
 #          cargo install mdbook-toc
 #          cargo install mdbook-pdf
 
+# no need if not publishing to gh-pages
 #      - name: Setup Pages
 #        id: pages
 #        uses: actions/configure-pages@v3
@@ -72,6 +72,7 @@ jobs:
         with:
           path: ./book
 
+# skip publishing to gh-pages for now
 #  # Deployment job
 #  deploy:
 #    environment:
@@ -83,7 +84,3 @@ jobs:
 #      - name: Deploy to GitHub Pages
 #        id: deployment
 #        uses: actions/deploy-pages@v2
-
-  # Installing /home/runner/.cargo/bin/mdbook-pdf
-  #  Installed package `mdbook-pdf v0.1.6` (executable `mdbook-pdf`)
-  #    Summary Successfully installed mdbook-toc, mdbook-pdf!
