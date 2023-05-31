@@ -34,21 +34,23 @@ jobs:
     steps:
       - name: Setup Chromium
         uses: browser-actions/setup-chrome@v1
-      - uses: actions/checkout@v3
 
       - name: Install mdBook
         uses: MineBartekSA/quick-mdbook@v1.1
 #        with:
 #          version: 0.4.21
 
+      - name: Cache mdBook dependencies
+        uses: Swatinem/rust-cache@v2.2.1
+
       - name: Get mdBook plugins
         run: |
+          ls -l /home/runner/.cargo/bin/
           curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
           rustup update
           cargo install mdbook-toc mdbook-pdf
 
-      - name: Cache mdBook dependencies
-        uses: Swatinem/rust-cache@v2.2.1
+      - uses: actions/checkout@v3
 
 #      - name: Install mdBook plugins
 #        run: |
@@ -69,6 +71,7 @@ jobs:
 #        uses: actions/configure-pages@v3
       - name: Build with mdBook
         run: mdbook build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
