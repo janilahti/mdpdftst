@@ -8,8 +8,8 @@ multilingual = false
 # https://crates.io/crates/mdbook-toc
 [preprocessor.toc]
 command = "mdbook-toc"
-#renderer = ["html", "pdf"]
-marker = "[[_TOC_]]"
+renderer = ["html"]
+#marker = "[[_TOC_]]"
 
 # for more options:
 # https://rust-lang.github.io/mdBook/format/configuration/renderers.html
