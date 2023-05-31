@@ -43,7 +43,7 @@ jobs:
 
       - name: Get mdBook plugins
         run: |
-          curl --proto '=https' 
+          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
           rustup update
           cargo install mdbook-toc mdbook-pdf
 
