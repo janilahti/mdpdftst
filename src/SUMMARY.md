@@ -7,7 +7,6 @@
 # User Guide
 
 - [My First Chapter](my-first-chapter.md)
-- [Nested example](nested/README.md)
 
 # Reference Manual
 
