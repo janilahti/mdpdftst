@@ -44,7 +44,7 @@ jobs:
       - name: Install mdBook plugins
         run: |
           ls -l /home/runner/.cargo/bin/md*
-          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y 20 | sh
+          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
           rustup update
           cargo install mdbook-toc mdbook-pdf
 
