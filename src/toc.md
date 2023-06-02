@@ -9,3 +9,9 @@ Alternative marker:
 [[_TOC_]]
 
 Text for padding.
+
+# First
+
+## Second
+
+# Third
